@@ -4,6 +4,12 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
+.coverage
+build/
+dist/
+.idea/
+.vscode/
 .venv/
 venv/
 
@@ -15,9 +21,11 @@ data/processed/*
 !data/processed/.gitkeep
 data/metadata/*
 !data/metadata/.gitkeep
+!data/metadata/latest_periods.csv
 data/external/*
 !data/external/.gitkeep
 
 Tire/raw_data/*.csv
 Vehicle/Data/*.csv
+Transport/Data/*.csv
 eurostat_tyre_vehicle.csv

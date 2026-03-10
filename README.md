@@ -8,9 +8,10 @@ This repository is a reproducible Python data pipeline for the Eurostat tyre and
 
 ```text
 .
+|-- .github/workflows/        # Scheduled automation
 |-- Dashboard/
-|-- Tire/                     # Legacy notebooks and legacy raw/output folders
-|-- Vehicle/                  # Legacy notebooks and legacy raw/output folders
+|-- Tire/                     # Legacy raw source folders
+|-- Vehicle/                  # Legacy raw source folders
 |-- Transport/                # Source-only assets, not yet automated
 |-- data/
 |   |-- raw/                  # Preferred location for raw inputs
@@ -41,7 +42,7 @@ The preferred long-term raw layout is:
 - `data/raw/vehicle/value`
 - `data/raw/vehicle/weight`
 
-Legacy folders are still supported as input fallbacks.
+Legacy raw folders are still supported as input fallbacks.
 
 ## Install
 
@@ -83,6 +84,8 @@ Check the latest available period before downloading:
 ```bash
 python3 -m eurostat_pipeline latest-periods
 ```
+
+The repository also includes a monthly GitHub Actions workflow that runs the same command and commits `data/metadata/latest_periods.csv` when the result changes.
 
 ## Incremental update strategy
 
@@ -129,8 +132,17 @@ Metadata:
 - `data/metadata/comext_requests_ds_045409.csv`
 - `data/metadata/latest_periods.csv`
 
+## GitHub Actions
+
+The workflow at `.github/workflows/monthly-latest-periods.yml` runs once per month and on manual dispatch.
+
+- Installs the package on `ubuntu-latest`
+- Runs `python -m eurostat_pipeline latest-periods`
+- Commits `data/metadata/latest_periods.csv` back to `main` if it changed
+- Skips the commit when there is no data change
+
 ## Notes
 
-- Legacy notebooks are kept as reference, but the supported production workflow is the Python package under `src/`.
+- Legacy notebooks and legacy generated CSVs have been removed from version control.
 - `Transport/` raw files and the Tableau / ACEA refresh logic are not yet automated.
 - The final merge applies the `QUANTITY_IN_100KG -> KG` conversion exactly once.

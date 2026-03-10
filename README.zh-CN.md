@@ -8,9 +8,10 @@ English version: [README.md](/Users/yunqiangluan/Library/Mobile%20Documents/com~
 
 ```text
 .
+|-- .github/workflows/        # 定时自动化任务
 |-- Dashboard/
-|-- Tire/                     # 历史 notebook 和原始/产出目录
-|-- Vehicle/                  # 历史 notebook 和原始/产出目录
+|-- Tire/                     # 历史原始数据目录
+|-- Vehicle/                  # 历史原始数据目录
 |-- Transport/                # 仅保留原始资产，尚未自动化
 |-- data/
 |   |-- raw/                  # 推荐放置新的原始输入
@@ -41,7 +42,7 @@ English version: [README.md](/Users/yunqiangluan/Library/Mobile%20Documents/com~
 - `data/raw/vehicle/value`
 - `data/raw/vehicle/weight`
 
-当前仍兼容旧目录，方便平滑迁移。
+当前仍兼容旧的原始数据目录，方便平滑迁移。
 
 ## 安装
 
@@ -83,6 +84,8 @@ python3 -m eurostat_pipeline build-merge
 ```bash
 python3 -m eurostat_pipeline latest-periods
 ```
+
+仓库还带了一条按月运行的 GitHub Actions，会执行同样的命令，并在结果变化时自动更新 `data/metadata/latest_periods.csv`。
 
 ## 增量更新策略
 
@@ -129,8 +132,17 @@ python3 -m eurostat_pipeline latest-periods
 - `data/metadata/comext_requests_ds_045409.csv`
 - `data/metadata/latest_periods.csv`
 
+## GitHub Actions
+
+`.github/workflows/monthly-latest-periods.yml` 支持按月定时运行，也支持手动触发。
+
+- 在 `ubuntu-latest` 上安装项目依赖
+- 执行 `python -m eurostat_pipeline latest-periods`
+- 如果 `data/metadata/latest_periods.csv` 有变化，就自动提交回 `main`
+- 如果没有变化，则不会产生无效提交
+
 ## 说明
 
-- 历史 notebook 仍然保留，主要用于追溯逻辑；正式生产流程以 `src/` 下的 Python 包为准。
+- 历史 notebook 和旧的生成 CSV 已从版本库中移除；正式生产流程以 `src/` 下的 Python 包为准。
 - `Transport/` 原始文件，以及 Tableau / ACEA 的刷新逻辑，当前还没有并入自动化流程。
 - 最终 merge 阶段只会执行一次 `QUANTITY_IN_100KG -> KG` 的单位换算。
