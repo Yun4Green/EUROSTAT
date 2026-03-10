@@ -1,0 +1,48 @@
+{
+  "dataset_code": "ds-045409",
+  "base_url": "https://ec.europa.eu/eurostat/api/comext/dissemination/statistics/1.0/data",
+  "format": "JSON",
+  "frequency": "M",
+  "flow": ["1"],
+  "reporters": [
+    "AT",
+    "BE",
+    "BG",
+    "HR",
+    "CY",
+    "CZ",
+    "DK",
+    "EE",
+    "FI",
+    "FR",
+    "DE",
+    "GR",
+    "HU",
+    "IE",
+    "IT",
+    "LV",
+    "LT",
+    "LU",
+    "MT",
+    "NL",
+    "PL",
+    "PT",
+    "RO",
+    "SK",
+    "SI",
+    "ES",
+    "SE",
+    "GB"
+  ],
+  "reporter_chunk_size": 28,
+  "years": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "indicators": {
+    "value": "VALUE_IN_EUROS",
+    "weight": "QUANTITY_IN_100KG"
+  },
+  "products": {
+    "tire": ["4011", "401110", "401120", "40112010", "40112090", "401170", "401180"],
+    "vehicle": ["8701", "8702", "8703", "8704", "8705", "870911", "870919", "871620", "871631", "871639", "871640"]
+  }
+}
