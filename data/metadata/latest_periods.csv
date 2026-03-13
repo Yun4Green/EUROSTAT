@@ -2,9 +2,9 @@ dataset_code,api_type,latest_period,updated,source_url
 ds-045409,comext,2025-12,2026-02-13T11:00:00+0100,https://ec.europa.eu/eurostat/api/comext/dissemination/statistics/1.0/data/ds-045409?format=JSON&freq=M&flow=1&reporter=DE&partner=CN&product=401110&indicators=VALUE_IN_EUROS
 road_eqr_lormot,statistics,2024,2025-12-15T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqr_lormot?format=JSON
 road_eqr_busmot,statistics,2024,2025-12-15T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqr_busmot?format=JSON
-road_eqr_carpda,statistics,2024,2026-01-15T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqr_carpda?format=JSON
+road_eqr_carpda,statistics,2024,2026-03-12T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqr_carpda?format=JSON
 road_eqr_tracmot,statistics,2024,2025-12-15T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqr_tracmot?format=JSON
 road_eqs_lormot,statistics,2024,2026-02-20T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqs_lormot?format=JSON
 road_eqs_busmot,statistics,2024,2026-02-20T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqs_busmot?format=JSON
-road_eqs_carpda,statistics,2024,2026-02-20T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqs_carpda?format=JSON
+road_eqs_carpda,statistics,2024,2026-03-12T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqs_carpda?format=JSON
 road_eqs_roaene,statistics,2024,2026-02-20T23:00:00+0100,https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/road_eqs_roaene?format=JSON
